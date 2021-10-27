@@ -1,0 +1,50 @@
+[
+    {
+        "nombre": "brocoli",
+        "calorias": 12,
+        "image": "img/vegetal/brocoli.png",
+        "precio": 122.20
+    },
+    {
+        "nombre": "cebolla",
+        "calorias": 9,
+        "image": "img/vegetal/cebolla.png",
+        "precio": 90.50
+    },
+    {
+        "nombre": "chili",
+        "calorias": 5,
+        "image": "img/vegetal/chili.png",
+        "precio": 60.70
+    },
+    {
+        "nombre": "choclo",
+        "calorias": 17,
+        "image": "img/vegetal/choclo.png",
+        "precio": 55.20
+    },
+    {
+        "nombre": "lechuga",
+        "calorias": 2,
+        "image": "img/vegetal/lechuga.png",
+        "precio": 25.50
+    },
+    {
+        "nombre": "papa",
+        "calorias": 22,
+        "image": "img/vegetal/papa.png",
+        "precio": 30.25
+    },
+    {
+        "nombre": "zanahoria",
+        "calorias": 9,
+        "image": "img/vegetal/zanahoria.png",
+        "precio": 97.25
+    },
+    {
+        "nombre": "zucchini",
+        "calorias": 12,
+        "image": "img/vegetal/zucchini.png",
+        "precio": 150.30
+    }
+]

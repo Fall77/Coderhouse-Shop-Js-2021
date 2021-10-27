@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+h1, h3, p {
+    color: black;
+    margin-top: 1%;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+h4{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    padding: 3px;
+    display: block;
+}
+h2{
+    display: block;
+    text-transform: capitalize;
+    margin: 10px;
+}
+body{
+    background-color: #f7b42c;
+    background-image: linear-gradient(315deg, #f7b32cbe 0%, #fc575e 74%);    
+    height: 100vh; 
+}
+.cart{
+    width: 40px;
+    height: 40px;
+}
+.nav-bar-div{
+    display: inline;
+    font-size: 24px;
+    color: white;
+}
+.modal-fruit{
+    top: 10%;
+    width: 440px;
+    height: 500px;
+    position: absolute;
+    left: -400px;
+    transition: all 1s ease-in-out;
+}
+#out-open-close-modal{
+    position: relative;
+    width: 70px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(0, 155, 0);
+    color: wheat;
+    box-shadow: black 2px 2px;
+    left: 70%;
+    top: 55%;
+    transform: rotate(90deg);
+}
+.moveLeft{
+    left: 0;
+}
+#openModal{
+    display: inline;
+    position: relative;
+    width: 70px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(0, 155, 0);
+    color: wheat;
+    box-shadow: black 2px 2px;
+}
+.btnModalBox{
+    width: 70px;
+    height: 40px;
+    border: 1px solid black;
+    position: relative;
+    background-color: rgb(252, 133, 133);
+    border-radius: 10px;
+    margin: auto;
+}
+.hide{
+    opacity: 0;
+}
+
+#modal{
+    display: flex;
+    top: 1%;
+    position: relative;
+    background-color: transparent;
+    border-radius: 10px;
+    width: 300px;
+    height: 150px;
+    margin: auto;
+}
+
+#modalInput{
+    font-size: 16px;
+    background-color: white;
+    height: 30px;
+    position: relative;
+}
+#delBtn{
+    top: 39%;
+    position: relative;
+    height: 40px;
+    border-radius: 10px;
+    color: wheat;
+    background-color: rgb(0, 155, 0);
+    box-shadow: black 2px 2px;
+}
+#sendBtn{
+    height: 40px;
+    position: relative;
+    border-radius: 10px;
+    color: wheat;
+    background-color: rgb(0, 155, 0);
+}
+#imgBox{
+    display: contents;
+}
+
+#imgBox img{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    left: 10%;
+}
+.imagenes{
+    animation: grow 2s infinite;
+}
+
+#fruitBox{
+    border: 1px solid #212529;
+    top: 50%;
+    background-color: #212529;
+    background-image: linear-gradient(315deg, #212529 0%, #eeeeeebe 74%);       
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    border-radius: 10px;
+    margin: auto;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.addBtn{
+    position: relative;
+    left: 45%;
+    margin: 5px;
+    width: 70px;
+    height: 40px;
+    border-radius: 10px;
+    color: wheat;
+    background-color: rgb(0, 155, 0);
+    box-shadow: black 2px 2px;
+}
+
+#shopCart {
+    width: 400px;
+    height: 300px;
+    border: 1px solid #212529;
+    background-color: #212529;
+    background-image: linear-gradient(315deg, #212529 0%, #eeeeeebe 74%);    
+    border-radius: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    margin: auto;
+    top: 25%;
+    left: 9%;
+}
+
+#vaciarCarro{
+    margin: 5px;
+    height: 40px;
+    position: relative;
+    border-radius: 10px;
+    color: wheat;
+    background-color: rgb(0, 155, 0);
+    box-shadow: black 2px 2px;
+    left: 55%;
+    top: 86%;
+}
+#open-close-cart{
+    top: 39%;
+    height: 40px;
+    position: relative;
+    border-radius: 10px;
+    color: wheat;
+    background-color: rgb(0, 155, 0);
+    box-shadow: black 2px 2px;
+    left: -65px;
+}
+.contenedor-carro{
+    width: 440px;
+    height: 400px;
+    position: sticky;
+    left: 80%;
+    transition: all 0.5s ease-in-out;
+}
+#shopCart .imagenesShop{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin: 10px;
+    transition: transform 0.2s
+}
+.imagenesShop:hover{
+    transform: rotate(360deg)
+}
+
+.precioShop{
+    text-align: end;
+    margin: 15px;
+    color: white;
+    font-weight: 700;
+}
+
+#precioTotal{
+    width: 200px;
+    height: 40px;
+    position: relative;
+    left: 60%;
+    top: 103%;
+    color: white;
+    font-weight: 700;
+    text-shadow: #212529 1px 1px;
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2);
+    }
+    100%{
+        transform: scale(1);
+    }
+  }

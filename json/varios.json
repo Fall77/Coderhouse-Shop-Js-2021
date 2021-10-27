@@ -1,0 +1,50 @@
+[
+    {
+        "nombre": "atun",
+        "calorias": 30,
+        "image": "img/varios/atun.png",
+        "precio": 200
+    },
+    {
+        "nombre": "coca",
+        "calorias": 45,
+        "image": "img/varios/coca.png",
+        "precio": 125.50
+    },
+    {
+        "nombre": "desodorante",
+        "calorias": 0,
+        "image": "img/varios/desodorante.png",
+        "precio": 97
+    },
+    {
+        "nombre": "fideos",
+        "calorias": 33,
+        "image": "img/varios/fideos.png",
+        "precio": 55.50
+    },
+    {
+        "nombre": "fosforos",
+        "calorias": 0,
+        "image": "img/varios/fosforos.png",
+        "precio": 77.70
+    },
+    {
+        "nombre": "pringles",
+        "calorias": 55,
+        "image": "img/varios/pringles.png",
+        "precio": 315
+    },
+    {
+        "nombre": "redbull",
+        "calorias": 45,
+        "image": "img/varios/redbull.png",
+        "precio": 100.35
+    },
+    {
+        "nombre": "shampoo",
+        "calorias": 0,
+        "image": "img/varios/shampoo.png",
+        "precio": 120.50
+    }
+]

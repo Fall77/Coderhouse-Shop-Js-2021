@@ -1,0 +1,104 @@
+[
+    {
+        "nombre": "manzana",
+        "calorias": 52,
+        "image": "img/fruta/manzana.png",
+        "precio": 97.80
+    },
+    {
+        "nombre": "pera",
+        "calorias": 57,
+        "image": "img/fruta/pera.png",
+        "precio": 122.40
+    },
+    {
+        "nombre": "ciruela",
+        "calorias": 46,
+        "image": "img/fruta/ciruela.png",
+        "precio": 42.23
+    },
+    {
+        "nombre": "mango",
+        "calorias": 60,
+        "image": "img/fruta/mango.png",
+        "precio": 121.50
+    },
+    {
+        "nombre": "durazno",
+        "calorias": 50,
+        "image": "img/fruta/durazno.png",
+        "precio": 70.60
+    },
+    {
+        "nombre": "banana",
+        "calorias": 89,
+        "image": "img/fruta/banana.png",
+        "precio": 75.20
+    },
+    {
+        "nombre": "uva",
+        "calorias": 67,
+        "image": "img/fruta/uva.png",
+        "precio": 130.55
+    },
+    {
+        "nombre": "naranja",
+        "calorias": 47,
+        "image": "img/fruta/naranja.png",
+        "precio": 50.99
+    },
+    {
+        "nombre": "frambuesa",
+        "calorias": 53,
+        "image": "img/fruta/frambuesa.png",
+        "precio": 43.60
+    },
+    {
+        "nombre": "kiwi",
+        "calorias": 61,
+        "image": "img/fruta/kiwi.png",
+        "precio": 78.35
+    },
+    {
+        "nombre": "anana",
+        "calorias": 77,
+        "image": "img/fruta/anana.png",
+        "precio": 156.20
+    },
+    {
+        "nombre": "limon",
+        "calorias": 29,
+        "image": "img/fruta/limon.png",
+        "precio": 50
+    },
+    {
+        "nombre": "melon",
+        "calorias": 36,
+        "image": "img/fruta/melon.png",
+        "precio": 90.30
+    },
+    {
+        "nombre": "pomelo",
+        "calorias": 42,
+        "image": "img/fruta/pomelo.png",
+        "precio": 110.55
+    },
+    {
+        "nombre": "sandia",
+        "calorias": 30,
+        "image": "img/fruta/sandia.png",
+        "precio": 200
+    },
+    {
+        "nombre": "cereza",
+        "calorias": 21,
+        "image": "img/fruta/cereza.png",
+        "precio": 122.50
+    },
+    {
+        "nombre": "frutilla",
+        "calorias": 24,
+        "image": "img/fruta/frutilla.png",
+        "precio": 250.70
+    }
+]
