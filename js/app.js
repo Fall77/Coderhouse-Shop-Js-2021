@@ -2,6 +2,7 @@ let inputVal = document.querySelector('#modalInput')
 let imgBox = document.querySelector('#imgBox')
 let productsBox = document.querySelector('.modal-fruit') 
 let shopBox = document.getElementById('shopCart')
+let animacionBox = document.getElementById('animacion-box')
 
 let precioAcumulado = 0;
 
@@ -86,9 +87,13 @@ function showFrutas(){
         if(e.target.id == fruta.nombre){
             console.log(`${e.target.id} was clicked and his price is ${fruta.precio}`)
             //se envia al acumulador de productos el producto clickeado
-            acumProductos.push(fruta)
-            console.log(acumProductos)
-            renderShop()
+            showAnimation(fruta.image)
+            setTimeout(function(){
+                acumProductos.push(fruta)
+                console.log(acumProductos)
+                renderShop()
+             }, 1500);
+             clearTimeout()
             }
         })
     })
@@ -112,9 +117,13 @@ function showVegetales(){
         if(e.target.id == vegetal.nombre){
             console.log(`${e.target.id} was clicked and his price is ${vegetal.precio}`)
             //se envia al acumulador de productos el producto clickeado
-            acumProductos.push(vegetal)
-            console.log(acumProductos)
-            renderShop()
+            showAnimation(vegetal.image)
+            setTimeout(function(){
+                acumProductos.push(vegetal)
+                console.log(acumProductos)
+                renderShop()
+             }, 1500);
+             clearTimeout()
             }
         })
     })
@@ -138,9 +147,13 @@ function showVarios(){
         if(e.target.id == varios.nombre){
             console.log(`${e.target.id} was clicked and his price is ${varios.precio}`)
             //se envia al acumulador de productos el producto clickeado
-            acumProductos.push(varios)
-            console.log(acumProductos)
-            renderShop()
+            showAnimation(varios.image)
+            setTimeout(function(){
+                acumProductos.push(varios)
+                console.log(acumProductos)
+                renderShop()
+             }, 1500);
+             clearTimeout()
             }
         })
     })
@@ -193,12 +206,31 @@ function showData(resultado){
             e.preventDefault()
             console.log(`${e.target.id} was clicked and his price is ${resultado.precio}`)
             //se envia al acumulador de productos el producto clickeado
-            acumProductos.push(resultado)
-            console.log(acumProductos)
-            renderShop()
+            showAnimation(resultado.image)
+            setTimeout(function(){
+                acumProductos.push(resultado)
+                console.log(acumProductos)
+                renderShop()
+             }, 1500);
+             clearTimeout()
             }
         })
 }
+
+function showAnimation(imgSrc){
+    let box = document.createElement('div')
+    let img = document.createElement('img')
+    img.classList.add('imgSize')
+    img.setAttribute("src", `${imgSrc}`)
+    box.setAttribute("style", "width: 50vw; height: 100px; transform: rotate(155deg)")
+    box.appendChild(img)
+    animacionBox.appendChild(box)
+    setTimeout(function(){
+       animacionBox.removeChild(animacionBox.firstChild)
+    }, 1500);
+    clearTimeout()
+}
+
 function borrarAll(){
     while (imgBox.firstChild){
         imgBox.removeChild(imgBox.firstChild);

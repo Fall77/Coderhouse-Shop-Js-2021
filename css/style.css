@@ -203,6 +203,18 @@ body{
 .imagenesShop:hover{
     transform: rotate(360deg)
 }
+.imgSize{
+    width: 90px;
+    height: 90px;
+    position: relative;
+    left: 90%;
+    animation: rotation 1.5s infinite linear;    
+}
+#animacion-box{
+    position: absolute;
+    left: 25%;
+    top: 30%;
+}
 
 .precioShop{
     text-align: end;
@@ -231,6 +243,17 @@ body{
     }
     100%{
         transform: scale(1);
+    }
+  }
+
+@keyframes rotation {
+    from {
+        left: 90%;
+        transform: rotate(0deg);
+    }
+    to {
+        left: 0;
+        transform: rotate(600deg);
     }
   }
 /*Scroll customizado*/
