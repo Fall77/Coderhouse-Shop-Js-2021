@@ -5,7 +5,7 @@ let shopBox = document.getElementById('shopCart')
 
 let precioAcumulado = 0;
 
-const URL1 = "Coderhouse-Shop-Js-2021/json/frutas.json"
+const URL1 = "https://raw.githubusercontent.com/Fall77/Coderhouse-Shop-Js-2021/main/json/frutas.json"
 
 const URL2 = "../json/vegetales.json"
 
