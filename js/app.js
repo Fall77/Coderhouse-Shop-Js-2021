@@ -7,9 +7,9 @@ let precioAcumulado = 0;
 
 const URL1 = "https://raw.githubusercontent.com/Fall77/Coderhouse-Shop-Js-2021/main/json/frutas.json"
 
-const URL2 = "../json/vegetales.json"
+const URL2 = "https://raw.githubusercontent.com/Fall77/Coderhouse-Shop-Js-2021/main/json/vegetales.json"
 
-const URL3 = "../json/varios.json"
+const URL3 = "https://raw.githubusercontent.com/Fall77/Coderhouse-Shop-Js-2021/main/json/varios.json"
 
 let frutas = []
 
