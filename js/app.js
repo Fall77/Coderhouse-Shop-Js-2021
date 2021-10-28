@@ -20,8 +20,7 @@ let varios = []
 
 fetch(URL3).then( (resp) => resp.json())
     .then(function(info){
-    varios = info;
-    console.log(varios)
+        varios = [...info]
     })
     .catch((err) => {
   console.error('Error:', err);
@@ -29,8 +28,7 @@ fetch(URL3).then( (resp) => resp.json())
 
 fetch(URL2).then( (resp) => resp.json())
     .then(function(info){
-    vegetales = info;
-    console.log(vegetales)
+        vegetales = [...info]
     })
     .catch((err) => {
   console.error('Error:', err);
@@ -38,8 +36,7 @@ fetch(URL2).then( (resp) => resp.json())
 
 fetch(URL1).then( (resp) => resp.json())
     .then(function(info){
-    frutas = info;
-    console.log(frutas)
+        frutas = [...info]
     })
     .catch((err) => {
   console.error('Error:', err);
@@ -69,9 +66,15 @@ function getFruit(valor){
     showData(resultado)
 }
 
+//function que setea data en el local storage
+function storeData(var1, var2){
+    localStorage.setItem(var1, JSON.stringify(var2));
+    storedData = JSON.parse(localStorage.getItem(var1))
+    renderShop()}
+
 //mostrar todas las frutas
 function showFrutas(){
-    frutas.sort(function(a, b){return a.calorias - b.calorias});
+    imgBox.innerHTML = '';
     frutas.forEach( (fruta)  => {
         imgBox.innerHTML += `
             <h2>${fruta.nombre}</h2>
@@ -86,22 +89,27 @@ function showFrutas(){
     imgBox.addEventListener("click", function(e){
         if(e.target.id == fruta.nombre){
             console.log(`${e.target.id} was clicked and his price is ${fruta.precio}`)
+            e.stopImmediatePropagation()
             //se envia al acumulador de productos el producto clickeado
             showAnimation(fruta.image)
+
             setTimeout(function(){
-                acumProductos.push(fruta)
-                console.log(acumProductos)
-                renderShop()
-             }, 1500);
-             clearTimeout()
+                if(acumProductos.includes(fruta)){
+                    fruta.cantidad++;
+                    storeData("Products", acumProductos)
+                }else{
+                    fruta.cantidad = 1;
+                    acumProductos.push(fruta)
+                    storeData("Products", acumProductos)}
+                    }, 1500);
+                    clearTimeout();  
             }
         })
     })
-
 }
 //mostrar todos los vegetales
 function showVegetales(){
-    vegetales.sort(function(a, b){return a.calorias - b.calorias});
+    imgBox.innerHTML = '';
     vegetales.forEach( (vegetal)  => {
         imgBox.innerHTML += `
             <h2>${vegetal.nombre}</h2>
@@ -116,44 +124,53 @@ function showVegetales(){
     imgBox.addEventListener("click", function(e){
         if(e.target.id == vegetal.nombre){
             console.log(`${e.target.id} was clicked and his price is ${vegetal.precio}`)
+            e.stopImmediatePropagation()
             //se envia al acumulador de productos el producto clickeado
             showAnimation(vegetal.image)
             setTimeout(function(){
-                acumProductos.push(vegetal)
-                console.log(acumProductos)
-                renderShop()
-             }, 1500);
-             clearTimeout()
+                if(acumProductos.includes(vegetal)){
+                    vegetal.cantidad++;
+                    storeData("Products", acumProductos)
+                }else{
+                    vegetal.cantidad = 1;
+                    acumProductos.push(vegetal)
+                    storeData("Products", acumProductos)}
+                    }, 1500);
+                    clearTimeout(); 
             }
         })
     })
-
 }
 //mostrar varios
 function showVarios(){
-    varios.sort(function(a, b){return a.calorias - b.calorias});
-    varios.forEach( (varios)  => {
+    imgBox.innerHTML = '';
+    varios.forEach( (vario)  => {
         imgBox.innerHTML += `
-            <h2>${varios.nombre}</h2>
+            <h2>${vario.nombre}</h2>
 
-            <p>Kcal: ${varios.calorias}</p>
-            <img class="imagenes" src="${varios.image}" alt="${varios.nombre}">
-            <p class="precioShop">Precio: $${varios.precio}</p>
-            <button class="addBtn" id="${varios.nombre}">Add</button>
+            <p>Kcal: ${vario.calorias}</p>
+            <img class="imagenes" src="${vario.image}" alt="${vario.nombre}">
+            <p class="precioShop">Precio: $${vario.precio}</p>
+            <button class="addBtn" id="${vario.nombre}">Add</button>
             <hr>
     `
     //capturar evento del boton clickeado
     imgBox.addEventListener("click", function(e){
-        if(e.target.id == varios.nombre){
+        if(e.target.id == vario.nombre){
             console.log(`${e.target.id} was clicked and his price is ${varios.precio}`)
+            e.stopImmediatePropagation()
             //se envia al acumulador de productos el producto clickeado
-            showAnimation(varios.image)
+            showAnimation(vario.image)
             setTimeout(function(){
-                acumProductos.push(varios)
-                console.log(acumProductos)
-                renderShop()
-             }, 1500);
-             clearTimeout()
+                if(acumProductos.includes(vario)){
+                    vario.cantidad++;
+                    storeData("Products", acumProductos)
+                }else{
+                    vario.cantidad = 1;
+                    acumProductos.push(vario)
+                    storeData("Products", acumProductos)}
+                    }, 1500);
+                    clearTimeout();  
             }
         })
     })
@@ -172,23 +189,24 @@ function resShop(){
     while (shopBox.firstChild){
         shopBox.removeChild(shopBox.firstChild);
       };
-      document.getElementById('precioTotal').innerHTML = `Total: $${Math.round(precioAcumulado)}`;
+      document.getElementById('precioTotal').innerHTML = `Total: $${Math.floor(precioAcumulado)}`;
 }
 //crear contenido shop
 function renderShop(){
     resShop()
-    acumProductos.forEach( (fruta)  => {
+    acumProductos.forEach( (producto)  => {
         let frutaBox = document.createElement('div')
-        precioAcumulado += fruta.precio;
+        precioAcumulado += producto.precio * producto.cantidad;
         frutaBox.innerHTML = `
-            <h2>${fruta.nombre}</h2>
-            <p class="precioShop">$${fruta.precio}</p>
-            <img class="imagenesShop" src="${fruta.image}" alt="${fruta.nombre}">
+            <h2>${producto.nombre}</h2>
+            <p class="precioShop">c/u: $${producto.precio}</p>
+            <img class="imagenesShop" src="${producto.image}" alt="${producto.nombre}">
+            <p> Cantidad: ${producto.cantidad} </p>
             <hr>
         `
         shopBox.appendChild(frutaBox)
         })
-        document.getElementById('precioTotal').innerHTML = `Total: $${Math.round(precioAcumulado)}`;
+        document.getElementById('precioTotal').innerHTML = `Total: $${Math.floor(precioAcumulado)}`;
 }
 
 function showData(resultado){
@@ -205,14 +223,19 @@ function showData(resultado){
         if(e.target.id == resultado.nombre){
             e.preventDefault()
             console.log(`${e.target.id} was clicked and his price is ${resultado.precio}`)
+            e.stopImmediatePropagation()
             //se envia al acumulador de productos el producto clickeado
             showAnimation(resultado.image)
             setTimeout(function(){
-                acumProductos.push(resultado)
-                console.log(acumProductos)
-                renderShop()
-             }, 1500);
-             clearTimeout()
+                if(acumProductos.includes(resultado)){
+                    resultado.cantidad++;
+                    storeData("Products", acumProductos)
+                }else{
+                    resultado.cantidad = 1;
+                    acumProductos.push(resultado)
+                    storeData("Products", acumProductos)}
+                    }, 1500);
+                clearTimeout();  
             }
         })
 }
