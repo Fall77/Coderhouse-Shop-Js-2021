@@ -159,10 +159,10 @@ body{
 }
 .contenedor-carro{
     margin: 10px;
-    width: auto;
+    width: 200px;
     height: 350px;
-    position: fixed;
-    left: 83%;
+    position: sticky;
+    left: 80%;
     transition: all 0.5s ease-in-out;
 }
 #shopCart .imagenesShop{

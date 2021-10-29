@@ -52,7 +52,6 @@ inputVal.onkeydown = (e) => {
 }
 //acumulador de frutas en las que se presiono el boton "Add"
 const acumProductos = JSON.parse(localStorage.getItem("Products")) || [];
-console.log(acumProductos)
 
 //Tomar valor del input
 function getInputValue(){ 
@@ -93,7 +92,6 @@ function showFrutas(){
         //capturar evento del boton clickeado
         imgBox.addEventListener("click", function(e){
             if(e.target.id == fruta.nombre){
-                console.log(`${e.target.id} was clicked and his price is ${fruta.precio}`)
                 e.stopImmediatePropagation()//detiene la propagacion de clicks que generaba multiples llamadas simultaneas por click
                 //Se activa la animacion y se envia al "Carro" el producto clickeado
                 showAnimation(fruta.image)
@@ -103,7 +101,6 @@ function showFrutas(){
                     let productoEncontrado = acumProductos.find( producto => producto.nombre === fruta.nombre);
                     if(acumProductos.includes(productoEncontrado)){
                         //Si es encontrado, se le aumenta la cantidad en 1
-                        console.log(productoEncontrado)
                         productoEncontrado.cantidad++;
                         //se guarda en storage cantidad actualizada
                         localStorage.setItem("Products", JSON.stringify(acumProductos));
@@ -137,14 +134,12 @@ function showVegetales(){
     //capturar evento del boton clickeado
     imgBox.addEventListener("click", function(e){
         if(e.target.id == vegetal.nombre){
-            console.log(`${e.target.id} was clicked and his price is ${vegetal.precio}`)
             e.stopImmediatePropagation()
             //se envia al acumulador de productos el producto clickeado
             showAnimation(vegetal.image)
             setTimeout(function(){
                 let productoEncontrado = acumProductos.find( producto => producto.nombre === vegetal.nombre);
                 if(acumProductos.includes(productoEncontrado)){
-                    console.log(productoEncontrado)
                     productoEncontrado.cantidad++;
                     localStorage.setItem("Products", JSON.stringify(acumProductos));
                     renderShop()
@@ -175,16 +170,13 @@ function showVarios(){
     //capturar evento del boton clickeado
     imgBox.addEventListener("click", function(e){
         if(e.target.id == vario.nombre){
-            console.log(`${e.target.id} was clicked and his price is ${varios.precio}`)
             e.stopImmediatePropagation()
             //se envia al acumulador de productos el producto clickeado
             showAnimation(vario.image)
             setTimeout(function(){
                 let productoEncontrado = acumProductos.find( producto => producto.nombre === vario.nombre);
                 if(acumProductos.includes(productoEncontrado)){
-                    console.log(productoEncontrado)
                     productoEncontrado.cantidad++;
-                    console.log(productoEncontrado.cantidad)
                     localStorage.setItem("Products", JSON.stringify(acumProductos));
                     renderShop()
                 }else{
@@ -247,16 +239,13 @@ function showData(resultado){
     imgBox.addEventListener("click", function(e){
         if(e.target.id == resultado.nombre){
             e.preventDefault()
-            console.log(`${e.target.id} was clicked and his price is ${resultado.precio}`)
             e.stopImmediatePropagation()
             //se envia al acumulador de productos el producto clickeado
             showAnimation(resultado.image)
             setTimeout(function(){
                 let productoEncontrado = acumProductos.find( producto => producto.nombre === resultado.nombre);
                 if(acumProductos.includes(productoEncontrado)){
-                    console.log(productoEncontrado)
                     productoEncontrado.cantidad++;
-                    console.log(productoEncontrado.cantidad)
                     localStorage.setItem("Products", JSON.stringify(acumProductos));
                     renderShop()
                 }else{
