@@ -165,12 +165,12 @@ body{
 
 #vaciarCarro{
     height: 40px;
-    position: absolute;
+    position: relative;
     border-radius: 10px;
     color: wheat;
     background-color: rgb(0, 155, 0);
     box-shadow: black 2px 2px;
-    top: 170%;
+    top: 166%;
 }
 #open-close-cart{
     top: 30%;
@@ -227,7 +227,7 @@ body{
     height: 40px;
     position: absolute;
     left: 70px;
-    top: 170%;
+    top: 166%;
     color: white;
     font-weight: 700;
     text-shadow: #212529 1px 1px;
