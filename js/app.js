@@ -48,7 +48,6 @@ fetch(URL1).then( (resp) => resp.json())
 inputVal.onkeydown = (e) => {
     if(e.key == 'Enter'){
         getInputValue()
-
     }
 }
 //acumulador de frutas en las que se presiono el boton "Add"
@@ -79,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 //mostrar todas las frutas en el menu izquierdo "imgBox"
 function showFrutas(){
+    showProductList()
     //vacia el contenido del menu
     imgBox.innerHTML = '';
     //rellena el menu con nuevo contenido
@@ -123,6 +123,7 @@ function showFrutas(){
 }
 //mostrar todos los vegetales
 function showVegetales(){
+    showProductList()
     imgBox.innerHTML = '';
     vegetales.forEach( (vegetal)  => {
         imgBox.innerHTML += `
@@ -161,6 +162,7 @@ function showVegetales(){
 }
 //mostrar varios
 function showVarios(){
+    showProductList()
     imgBox.innerHTML = '';
     varios.forEach( (vario)  => {
         imgBox.innerHTML += `
@@ -236,6 +238,8 @@ function renderShop(){
 //funcion vinculada al input y al boton "search", busca productos individualmente
 function showData(resultado){
     if(resultado){
+        //si el ingreso es correcto se abrira la lista de productos "automaticamente"
+        showProductList()
         imgBox.innerHTML = `
         <h2>${resultado.nombre}</h2>
 
@@ -282,7 +286,7 @@ function inputColor(border, color){
         inputVal.value = '';
         inputVal.style.border = "none"
         inputVal.style.backgroundColor = "#ffffff"
-    }, 1500)
+    }, 5000)
 }
 
 //creacion de animacion y eliminacion de la misma despues de 1.5s
@@ -314,7 +318,12 @@ function borrarAll(){
         imgBox.removeChild(imgBox.firstChild);
       };
     inputVal.value = '';
-}         
+}
+
+//mostrar lista productos
+function showProductList(){
+    productsBox.classList.add('moveLeft')
+}
 //deslizar lista de productos (izq)
 document.getElementById('out-open-close-modal').addEventListener("click",() => {
     productsBox.classList.toggle('moveLeft')
