@@ -22,6 +22,8 @@ body{
     background-color: #f7b42c;
     background-image: linear-gradient(315deg, #f7b32cbe 0%, #fc575e 74%);    
     height: 100vh; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .cart{
     width: 40px;
@@ -36,8 +38,8 @@ body{
     top: 10%;
     width: 440px;
     height: 500px;
-    position: absolute;
-    left: -400px;
+    position: fixed;
+    left: -410px;
     transition: all 1s ease-in-out;
 }
 #out-open-close-modal{
@@ -48,47 +50,16 @@ body{
     background-color: rgb(0, 155, 0);
     color: wheat;
     box-shadow: black 2px 2px;
-    left: 70%;
+    left: 72%;
     top: 55%;
     transform: rotate(90deg);
 }
 .moveLeft{
-    left: 0;
-}
-#openModal{
-    display: inline;
-    position: relative;
-    width: 70px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: rgb(0, 155, 0);
-    color: wheat;
-    box-shadow: black 2px 2px;
-}
-.btnModalBox{
-    width: 70px;
-    height: 40px;
-    border: 1px solid black;
-    position: relative;
-    background-color: rgb(252, 133, 133);
-    border-radius: 10px;
-    margin: auto;
+    left: 10px;
 }
 .hide{
     opacity: 0;
 }
-
-#modal{
-    display: flex;
-    top: 1%;
-    position: relative;
-    background-color: transparent;
-    border-radius: 10px;
-    width: 300px;
-    height: 150px;
-    margin: auto;
-}
-
 #modalInput{
     font-size: 16px;
     background-color: white;
@@ -130,12 +101,12 @@ body{
     top: 50%;
     background-color: #212529;
     background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);     width: 400px;
-    height: 300px;
+    height: 500px;
     position: absolute;
     border-radius: 10px;
-    margin: auto;
     overflow: scroll;
     overflow-x: hidden;
+    box-shadow: black 3px 3px;
 }
 
 .addBtn{
@@ -151,8 +122,9 @@ body{
 }
 
 #shopCart {
-    width: 400px;
-    height: 300px;
+    min-width: 220px;
+    width: auto;
+    height: 500px;
     border: 1px solid #212529;
     background-color: #212529;
     background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);     
@@ -160,9 +132,8 @@ body{
     overflow: scroll;
     overflow-x: hidden;
     position: absolute;
-    margin: auto;
     top: 25%;
-    left: 9%;
+    box-shadow: black 2px 2px;
 }
 
 #vaciarCarro{
@@ -173,8 +144,7 @@ body{
     color: wheat;
     background-color: rgb(0, 155, 0);
     box-shadow: black 2px 2px;
-    left: 55%;
-    top: 86%;
+    top: 136.3%;
 }
 #open-close-cart{
     top: 39%;
@@ -187,18 +157,20 @@ body{
     left: -65px;
 }
 .contenedor-carro{
-    width: 440px;
+    margin: 10px;
+    width: auto;
     height: 400px;
-    position: sticky;
-    left: 80%;
+    position: fixed;
+    left: 86%;
     transition: all 0.5s ease-in-out;
 }
 #shopCart .imagenesShop{
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     position: relative;
-    margin: 10px;
-    transition: transform 0.2s
+    margin: 0;
+    transition: transform 0.2s;
+    left: 10px;
 }
 .imagenesShop:hover{
     transform: rotate(360deg)
@@ -211,7 +183,7 @@ body{
     animation: rotation 1.5s infinite linear;    
 }
 #animacion-box{
-    position: absolute;
+    position: fixed;
     left: 25%;
     top: 30%;
 }
@@ -224,14 +196,18 @@ body{
 }
 
 #precioTotal{
-    width: 200px;
+    padding: 5px;
+    width: 140px;
     height: 40px;
     position: relative;
-    left: 60%;
-    top: 103%;
+    left: 70px;
+    top: 152%;
     color: white;
     font-weight: 700;
     text-shadow: #212529 1px 1px;
+    background-color: #0bab64;
+    box-shadow: black 2px 2px;
+    border-radius: 10px;
 }
 
 @keyframes grow {

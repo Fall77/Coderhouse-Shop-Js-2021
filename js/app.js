@@ -18,6 +18,7 @@ let vegetales = []
 
 let varios = []
 
+//fetch de productos varios
 fetch(URL3).then( (resp) => resp.json())
     .then(function(info){
         varios = [...info]
@@ -25,7 +26,7 @@ fetch(URL3).then( (resp) => resp.json())
     .catch((err) => {
   console.error('Error:', err);
 });
-
+//fetch de vegetales
 fetch(URL2).then( (resp) => resp.json())
     .then(function(info){
         vegetales = [...info]
@@ -33,7 +34,7 @@ fetch(URL2).then( (resp) => resp.json())
     .catch((err) => {
   console.error('Error:', err);
 });
-
+//fetch de frutas
 fetch(URL1).then( (resp) => resp.json())
     .then(function(info){
         frutas = [...info]
@@ -42,7 +43,7 @@ fetch(URL1).then( (resp) => resp.json())
   console.error('Error:', err);
 });
 
-//tecla enter trae resultado individual
+//tecla enter en el input recupera su valor
 inputVal.onkeydown = (e) => {
     if(e.key == 'Enter'){
         getInputValue()
@@ -50,59 +51,72 @@ inputVal.onkeydown = (e) => {
     }
 }
 //acumulador de frutas en las que se presiono el boton "Add"
-const acumProductos = [];
+const acumProductos = JSON.parse(localStorage.getItem("Products")) || [];
+console.log(acumProductos)
 
 //Tomar valor del input
 function getInputValue(){ 
     const valor = inputVal.value
     const valorLow = valor.toLowerCase()
-    getFruit(valorLow)
+    getSingleProduct(valorLow)
 }
 
-//comparar valor del input con array de productos
-function getFruit(valor){
+//comparar valor del input con concatenacion de todos los productos
+function getSingleProduct(valor){
     let todo = frutas.concat(vegetales, varios)
     const resultado = todo.find( producto => producto.nombre === valor );
     showData(resultado)
 }
 
-//function que setea data en el local storage
-function storeData(var1, var2){
-    localStorage.setItem(var1, JSON.stringify(var2));
-    storedData = JSON.parse(localStorage.getItem(var1))
-    renderShop()}
+//cargar data del storage, almacenada en el array acumProductos, si existe
+document.addEventListener("DOMContentLoaded", function(){
+    if(localStorage.getItem("Products")){
+        renderShop()
+        }else{
+    console.log("No data stored")
+    }
+})
 
-//mostrar todas las frutas
+//mostrar todas las frutas en el menu izquierdo "imgBox"
 function showFrutas(){
+    //vacia el contenido del menu
     imgBox.innerHTML = '';
+    //rellena el menu con nuevo contenido
     frutas.forEach( (fruta)  => {
         imgBox.innerHTML += `
             <h2>${fruta.nombre}</h2>
-
             <p>Kcal: ${fruta.calorias}</p>
             <img class="imagenes" src="${fruta.image}" alt="${fruta.nombre}">
             <p class="precioShop">Precio: $${fruta.precio}</p>
             <button class="addBtn" id="${fruta.nombre}">Add</button>
-            <hr>
-    `
-    //capturar evento del boton clickeado
-    imgBox.addEventListener("click", function(e){
-        if(e.target.id == fruta.nombre){
-            console.log(`${e.target.id} was clicked and his price is ${fruta.precio}`)
-            e.stopImmediatePropagation()
-            //se envia al acumulador de productos el producto clickeado
-            showAnimation(fruta.image)
+            <hr>`
+        //capturar evento del boton clickeado
+        imgBox.addEventListener("click", function(e){
+            if(e.target.id == fruta.nombre){
+                console.log(`${e.target.id} was clicked and his price is ${fruta.precio}`)
+                e.stopImmediatePropagation()//detiene la propagacion de clicks que generaba multiples llamadas simultaneas por click
+                //Se activa la animacion y se envia al "Carro" el producto clickeado
+                showAnimation(fruta.image)
 
-            setTimeout(function(){
-                if(acumProductos.includes(fruta)){
-                    fruta.cantidad++;
-                    storeData("Products", acumProductos)
-                }else{
-                    fruta.cantidad = 1;
-                    acumProductos.push(fruta)
-                    storeData("Products", acumProductos)}
+                setTimeout(function(){
+                    //se busca el producto clickeado dentro del array "acumProductos"
+                    let productoEncontrado = acumProductos.find( producto => producto.nombre === fruta.nombre);
+                    if(acumProductos.includes(productoEncontrado)){
+                        //Si es encontrado, se le aumenta la cantidad en 1
+                        console.log(productoEncontrado)
+                        productoEncontrado.cantidad++;
+                        //se guarda en storage cantidad actualizada
+                        localStorage.setItem("Products", JSON.stringify(acumProductos));
+                        //se crea nuevamente el shop con la informacion actualizada
+                        renderShop()
+                    }else{
+                        //Si el producto no es encontrado, se agrega uno nuevo, inicializado con cantidad 1
+                        fruta.cantidad = 1;
+                        acumProductos.push(fruta)
+                        localStorage.setItem("Products", JSON.stringify(acumProductos));
+                        renderShop();}
                     }, 1500);
-                    clearTimeout();  
+                clearTimeout();  
             }
         })
     })
@@ -128,15 +142,19 @@ function showVegetales(){
             //se envia al acumulador de productos el producto clickeado
             showAnimation(vegetal.image)
             setTimeout(function(){
-                if(acumProductos.includes(vegetal)){
-                    vegetal.cantidad++;
-                    storeData("Products", acumProductos)
+                let productoEncontrado = acumProductos.find( producto => producto.nombre === vegetal.nombre);
+                if(acumProductos.includes(productoEncontrado)){
+                    console.log(productoEncontrado)
+                    productoEncontrado.cantidad++;
+                    localStorage.setItem("Products", JSON.stringify(acumProductos));
+                    renderShop()
                 }else{
                     vegetal.cantidad = 1;
                     acumProductos.push(vegetal)
-                    storeData("Products", acumProductos)}
-                    }, 1500);
-                    clearTimeout(); 
+                    localStorage.setItem("Products", JSON.stringify(acumProductos));
+                    renderShop();}
+                }, 1500);
+                clearTimeout(); 
             }
         })
     })
@@ -162,24 +180,31 @@ function showVarios(){
             //se envia al acumulador de productos el producto clickeado
             showAnimation(vario.image)
             setTimeout(function(){
-                if(acumProductos.includes(vario)){
-                    vario.cantidad++;
-                    storeData("Products", acumProductos)
+                let productoEncontrado = acumProductos.find( producto => producto.nombre === vario.nombre);
+                if(acumProductos.includes(productoEncontrado)){
+                    console.log(productoEncontrado)
+                    productoEncontrado.cantidad++;
+                    console.log(productoEncontrado.cantidad)
+                    localStorage.setItem("Products", JSON.stringify(acumProductos));
+                    renderShop()
                 }else{
                     vario.cantidad = 1;
                     acumProductos.push(vario)
-                    storeData("Products", acumProductos)}
-                    }, 1500);
-                    clearTimeout();  
+                    localStorage.setItem("Products", JSON.stringify(acumProductos));
+                    renderShop();}
+                }, 1500);
+                clearTimeout();  
             }
         })
     })
 
 }
 
-//vaciar carro
+//vaciar carro y storage
 function vaciarCarro(){
     acumProductos.splice(acumProductos)
+    localStorage.clear()
+    console.log("Storage Cleared")
     resShop()
 }
 
@@ -208,7 +233,7 @@ function renderShop(){
         })
         document.getElementById('precioTotal').innerHTML = `Total: $${Math.floor(precioAcumulado)}`;
 }
-
+//funcion vinculada al input y al boton "search", busca productos individualmente
 function showData(resultado){
     imgBox.innerHTML = `
     <h2>${resultado.nombre}</h2>
@@ -227,25 +252,30 @@ function showData(resultado){
             //se envia al acumulador de productos el producto clickeado
             showAnimation(resultado.image)
             setTimeout(function(){
-                if(acumProductos.includes(resultado)){
-                    resultado.cantidad++;
-                    storeData("Products", acumProductos)
+                let productoEncontrado = acumProductos.find( producto => producto.nombre === resultado.nombre);
+                if(acumProductos.includes(productoEncontrado)){
+                    console.log(productoEncontrado)
+                    productoEncontrado.cantidad++;
+                    console.log(productoEncontrado.cantidad)
+                    localStorage.setItem("Products", JSON.stringify(acumProductos));
+                    renderShop()
                 }else{
                     resultado.cantidad = 1;
                     acumProductos.push(resultado)
-                    storeData("Products", acumProductos)}
-                    }, 1500);
+                    localStorage.setItem("Products", JSON.stringify(acumProductos));
+                    renderShop()}
+                }, 1500);
                 clearTimeout();  
             }
         })
 }
-
+//creacion de animacion y eliminacion de la misma despues de 1.5s
 function showAnimation(imgSrc){
     let box = document.createElement('div')
     let img = document.createElement('img')
     img.classList.add('imgSize')
     img.setAttribute("src", `${imgSrc}`)
-    box.setAttribute("style", "width: 50vw; height: 100px; transform: rotate(155deg)")
+    box.setAttribute("style", "width: 65vw; height: 100px; transform: rotate(160deg)")
     box.appendChild(img)
     animacionBox.appendChild(box)
     setTimeout(function(){
@@ -254,28 +284,30 @@ function showAnimation(imgSrc){
     clearTimeout()
 }
 
+//funcion vaciar lista productos (izq)
 function borrarAll(){
     while (imgBox.firstChild){
         imgBox.removeChild(imgBox.firstChild);
       };
     inputVal.value = '';
 }         
-
+//deslizar lista de productos (izq)
 document.getElementById('out-open-close-modal').addEventListener("click",() => {
     productsBox.classList.toggle('moveLeft')
 })
-
+//mostrar/ocultar carro
 document.getElementById('open-close-cart').addEventListener("click", function(){
     document.querySelector('.contenedor-carro').classList.toggle('hide')
 })
 
-
+//botones para traer productos a la lista
 document.getElementById('showFrutas').addEventListener("click", showFrutas)
 
 document.getElementById('showVegetales').addEventListener("click", showVegetales)
 
 document.getElementById('showVarios').addEventListener("click", showVarios)
 
+//boton para borrar lista (izq) y boton para vaciar carro (derecha)
 document.getElementById('delBtn').addEventListener("click", borrarAll)
 
 document.getElementById('vaciarCarro').addEventListener("click", vaciarCarro)
