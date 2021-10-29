@@ -24,6 +24,7 @@ body{
     height: 100vh; 
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-size: medium;
 }
 .cart{
     width: 40px;
@@ -31,13 +32,13 @@ body{
 }
 .nav-bar-div{
     display: inline;
-    font-size: 24px;
+    font-size: 22px;
     color: white;
 }
 .modal-fruit{
     top: 10%;
-    width: 440px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
     position: fixed;
     left: -410px;
     transition: all 1s ease-in-out;
@@ -50,8 +51,8 @@ body{
     background-color: rgb(0, 155, 0);
     color: wheat;
     box-shadow: black 2px 2px;
-    left: 72%;
-    top: 55%;
+    left: 310px;
+    top: 60%;
     transform: rotate(90deg);
 }
 .moveLeft{
@@ -61,13 +62,13 @@ body{
     opacity: 0;
 }
 #modalInput{
-    font-size: 16px;
+    font-size: 12px;
     background-color: white;
     height: 30px;
     position: relative;
 }
 #delBtn{
-    top: 39%;
+    top: 30%;
     position: relative;
     height: 40px;
     border-radius: 10px;
@@ -123,8 +124,9 @@ body{
 
 #shopCart {
     min-width: 220px;
+    padding: 5px;
     width: auto;
-    height: 500px;
+    height: 480px;
     border: 1px solid #212529;
     background-color: #212529;
     background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);     
@@ -137,17 +139,16 @@ body{
 }
 
 #vaciarCarro{
-    margin: 5px;
     height: 40px;
-    position: relative;
+    position: absolute;
     border-radius: 10px;
     color: wheat;
     background-color: rgb(0, 155, 0);
     box-shadow: black 2px 2px;
-    top: 136.3%;
+    top: 170%;
 }
 #open-close-cart{
-    top: 39%;
+    top: 30%;
     height: 40px;
     position: relative;
     border-radius: 10px;
@@ -159,9 +160,9 @@ body{
 .contenedor-carro{
     margin: 10px;
     width: auto;
-    height: 400px;
+    height: 350px;
     position: fixed;
-    left: 86%;
+    left: 83%;
     transition: all 0.5s ease-in-out;
 }
 #shopCart .imagenesShop{
@@ -199,9 +200,9 @@ body{
     padding: 5px;
     width: 140px;
     height: 40px;
-    position: relative;
+    position: absolute;
     left: 70px;
-    top: 152%;
+    top: 170%;
     color: white;
     font-weight: 700;
     text-shadow: #212529 1px 1px;
@@ -234,7 +235,7 @@ body{
   }
 /*Scroll customizado*/
 ::-webkit-scrollbar {
-    width: 25px;
+    width: 20px;
   }
 ::-webkit-scrollbar-track {
     background: #f1f1f1; 
@@ -242,8 +243,10 @@ body{
     border-radius: 10px;
   }
 ::-webkit-scrollbar-thumb {
-    background: rgb(0, 155, 0); 
+    background: rgba(94, 190, 150, 0.884); 
+    border-radius: 10px;
   }
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: rgb(30, 114, 22); 
+    border-radius: 10px;
   }
