@@ -24,7 +24,7 @@ body{
     height: 100vh; 
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-size: medium;
+    font-size: 0.7rem;
 }
 .cart{
     width: 40px;
@@ -32,7 +32,7 @@ body{
 }
 .nav-bar-div{
     display: inline;
-    font-size: 22px;
+    font-size: 1.3rem;
     color: white;
 }
 .drop:hover{
@@ -49,13 +49,14 @@ body{
     border-radius: 10px;
     margin: auto;
     color: white;
+    font-size: 0.8rem;
     text-shadow:#212529 1px 1px;
     top: 40%;
-    width: 13vw;
+    width: 15%;
     height: 50px;
     border: 2px solid #0bab64;
     text-align: center;
-    padding: 6px;
+    padding-top: 10px;
     animation: wobble 2s infinite linear; 
     transition: all 0.5s ease;
 }
@@ -86,7 +87,7 @@ body{
     opacity: 0;
 }
 #modalInput{
-    font-size: 12px;
+    font-size: 0.7rem;
     background-color: white;
     height: 30px;
     position: relative;
@@ -107,6 +108,7 @@ body{
     border-radius: 10px;
     color: wheat;
     background-color: rgb(0, 155, 0);
+    font-size: 1rem;
 }
 #imgBox{
     display: contents;
