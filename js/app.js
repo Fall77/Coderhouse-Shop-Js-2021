@@ -218,12 +218,13 @@ function resShop(){
 //crear contenido shop
 function renderShop(){
     resShop()
+    document.querySelector('.contenedor-carro').classList.remove('hide')
     acumProductos.forEach( (producto)  => {
         let frutaBox = document.createElement('div')
         precioAcumulado += producto.precio * producto.cantidad;
         frutaBox.innerHTML = `
             <h2>${producto.nombre}</h2>
-            <p class="precioShop">c/u: $${producto.precio}</p>
+            <p class="precioShop"> $${producto.precio}</p>
             <img class="imagenesShop" src="${producto.image}" alt="${producto.nombre}">
             <p> Amount: ${producto.cantidad} </p>
             <hr>

@@ -250,10 +250,12 @@ body{
 
 @keyframes rotation {
     from {
+        opacity: 1;
         left: 90%;
         transform: rotate(0deg);
     }
     to {
+        opacity: 0.5;
         left: 0;
         transform: rotate(600deg);
     }
