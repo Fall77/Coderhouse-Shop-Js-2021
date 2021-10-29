@@ -48,7 +48,7 @@ fetch(URL1).then( (resp) => resp.json())
 inputVal.onkeydown = (e) => {
     if(e.key == 'Enter'){
         getInputValue()
-        inputVal.value = '';
+
     }
 }
 //acumulador de frutas en las que se presiono el boton "Add"
@@ -87,7 +87,7 @@ function showFrutas(){
             <h2>${fruta.nombre}</h2>
             <p>Kcal: ${fruta.calorias}</p>
             <img class="imagenes" src="${fruta.image}" alt="${fruta.nombre}">
-            <p class="precioShop">Precio: $${fruta.precio}</p>
+            <p class="precioShop">Price: $${fruta.precio}</p>
             <button class="addBtn" id="${fruta.nombre}">Add</button>
             <hr>`
         //capturar evento del boton clickeado
@@ -130,7 +130,7 @@ function showVegetales(){
 
             <p>Kcal: ${vegetal.calorias}</p>
             <img class="imagenes" src="${vegetal.image}" alt="${vegetal.nombre}">
-            <p class="precioShop">Precio: $${vegetal.precio}</p>
+            <p class="precioShop">Price: $${vegetal.precio}</p>
             <button class="addBtn" id="${vegetal.nombre}">Add</button>
             <hr>
     `
@@ -168,7 +168,7 @@ function showVarios(){
 
             <p>Kcal: ${vario.calorias}</p>
             <img class="imagenes" src="${vario.image}" alt="${vario.nombre}">
-            <p class="precioShop">Precio: $${vario.precio}</p>
+            <p class="precioShop">Price: $${vario.precio}</p>
             <button class="addBtn" id="${vario.nombre}">Add</button>
             <hr>
     `
@@ -225,7 +225,7 @@ function renderShop(){
             <h2>${producto.nombre}</h2>
             <p class="precioShop">c/u: $${producto.precio}</p>
             <img class="imagenesShop" src="${producto.image}" alt="${producto.nombre}">
-            <p> Cantidad: ${producto.cantidad} </p>
+            <p> Amount: ${producto.cantidad} </p>
             <hr>
         `
         shopBox.appendChild(frutaBox)
@@ -234,19 +234,21 @@ function renderShop(){
 }
 //funcion vinculada al input y al boton "search", busca productos individualmente
 function showData(resultado){
-    imgBox.innerHTML = `
-    <h2>${resultado.nombre}</h2>
+    if(resultado){
+        imgBox.innerHTML = `
+        <h2>${resultado.nombre}</h2>
 
-    <p>Kcal: ${resultado.calorias}</p>
-    <img class="imagenes" src="${resultado.image}" alt="${resultado.nombre}">
-    <p class="precioShop">Precio: $${resultado.precio}</p>
-    <button class="addBtn" id="${resultado.nombre}">Add</button>
-    <hr>
-    `
-    imgBox.addEventListener("click", function(e){
-        if(e.target.id == resultado.nombre){
-            e.preventDefault()
-            e.stopImmediatePropagation()
+        <p>Kcal: ${resultado.calorias}</p>
+        <img class="imagenes" src="${resultado.image}" alt="${resultado.nombre}">
+        <p class="precioShop">Price: $${resultado.precio}</p>
+        <button class="addBtn" id="${resultado.nombre}">Add</button>
+        <hr>
+        `
+        inputColor("none", "#80ff80")
+        imgBox.addEventListener("click", function(e){
+            if(e.target.id == resultado.nombre){
+                e.preventDefault()
+                e.stopImmediatePropagation()
             //se envia al acumulador de productos el producto clickeado
             showAnimation(resultado.image)
             setTimeout(function(){
@@ -266,7 +268,22 @@ function showData(resultado){
                 clearTimeout();  
             }
         })
+    }else{
+        inputColor("1px solid red", "#ff9999")
+        console.log("Product not found")
+    }
 }
+
+function inputColor(border, color){
+    inputVal.style.border = border
+    inputVal.style.backgroundColor = color
+    setTimeout(function(){
+        inputVal.value = '';
+        inputVal.style.border = "none"
+        inputVal.style.backgroundColor = "#ffffff"
+    }, 1500)
+}
+
 //creacion de animacion y eliminacion de la misma despues de 1.5s
 function showAnimation(imgSrc){
     let box = document.createElement('div')

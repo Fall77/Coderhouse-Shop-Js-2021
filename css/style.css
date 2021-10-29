@@ -90,6 +90,7 @@ body{
     background-color: white;
     height: 30px;
     position: relative;
+    border-radius: 5px;
 }
 #delBtn{
     top: 30%;

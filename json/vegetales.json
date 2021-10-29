@@ -1,12 +1,12 @@
 [
     {
-        "nombre": "brocoli",
+        "nombre": "broccoli",
         "calorias": 12,
         "image": "img/vegetal/brocoli.png",
         "precio": 122.20
     },
     {
-        "nombre": "cebolla",
+        "nombre": "onion",
         "calorias": 9,
         "image": "img/vegetal/cebolla.png",
         "precio": 90.50
@@ -18,25 +18,25 @@
         "precio": 60.70
     },
     {
-        "nombre": "choclo",
+        "nombre": "corn",
         "calorias": 17,
         "image": "img/vegetal/choclo.png",
         "precio": 55.20
     },
     {
-        "nombre": "lechuga",
+        "nombre": "lettuce",
         "calorias": 2,
         "image": "img/vegetal/lechuga.png",
         "precio": 25.50
     },
     {
-        "nombre": "papa",
+        "nombre": "potato",
         "calorias": 22,
         "image": "img/vegetal/papa.png",
         "precio": 30.25
     },
     {
-        "nombre": "zanahoria",
+        "nombre": "carrots",
         "calorias": 9,
         "image": "img/vegetal/zanahoria.png",
         "precio": 97.25

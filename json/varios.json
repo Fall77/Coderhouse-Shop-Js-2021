@@ -1,30 +1,30 @@
 [
     {
-        "nombre": "atun",
+        "nombre": "tuna",
         "calorias": 30,
         "image": "img/varios/atun.png",
         "precio": 200
     },
     {
-        "nombre": "coca",
+        "nombre": "coke",
         "calorias": 45,
         "image": "img/varios/coca.png",
         "precio": 125.50
     },
     {
-        "nombre": "desodorante",
+        "nombre": "deodorant",
         "calorias": 0,
         "image": "img/varios/desodorante.png",
         "precio": 97
     },
     {
-        "nombre": "fideos",
+        "nombre": "noodles",
         "calorias": 33,
         "image": "img/varios/fideos.png",
         "precio": 55.50
     },
     {
-        "nombre": "fosforos",
+        "nombre": "matches",
         "calorias": 0,
         "image": "img/varios/fosforos.png",
         "precio": 77.70

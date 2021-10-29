@@ -6,13 +6,13 @@
         "precio": 97.80
     },
     {
-        "nombre": "pera",
+        "nombre": "pear",
         "calorias": 57,
         "image": "img/fruta/pera.png",
         "precio": 122.40
     },
     {
-        "nombre": "ciruela",
+        "nombre": "plum",
         "calorias": 46,
         "image": "img/fruta/ciruela.png",
         "precio": 42.23
@@ -24,7 +24,7 @@
         "precio": 121.50
     },
     {
-        "nombre": "durazno",
+        "nombre": "peach",
         "calorias": 50,
         "image": "img/fruta/durazno.png",
         "precio": 70.60
@@ -36,19 +36,19 @@
         "precio": 75.20
     },
     {
-        "nombre": "uva",
+        "nombre": "grapes",
         "calorias": 67,
         "image": "img/fruta/uva.png",
         "precio": 130.55
     },
     {
-        "nombre": "naranja",
+        "nombre": "orange",
         "calorias": 47,
         "image": "img/fruta/naranja.png",
         "precio": 50.99
     },
     {
-        "nombre": "frambuesa",
+        "nombre": "raspberry",
         "calorias": 53,
         "image": "img/fruta/frambuesa.png",
         "precio": 43.60
@@ -60,43 +60,43 @@
         "precio": 78.35
     },
     {
-        "nombre": "anana",
+        "nombre": "pineapple",
         "calorias": 77,
         "image": "img/fruta/anana.png",
         "precio": 156.20
     },
     {
-        "nombre": "limon",
+        "nombre": "lemon",
         "calorias": 29,
         "image": "img/fruta/limon.png",
         "precio": 50
     },
     {
-        "nombre": "melon",
+        "nombre": "cantaloupe",
         "calorias": 36,
         "image": "img/fruta/melon.png",
         "precio": 90.30
     },
     {
-        "nombre": "pomelo",
+        "nombre": "grape fruit",
         "calorias": 42,
         "image": "img/fruta/pomelo.png",
         "precio": 110.55
     },
     {
-        "nombre": "sandia",
+        "nombre": "watermelon",
         "calorias": 30,
         "image": "img/fruta/sandia.png",
         "precio": 200
     },
     {
-        "nombre": "cereza",
+        "nombre": "cherry",
         "calorias": 21,
         "image": "img/fruta/cereza.png",
         "precio": 122.50
     },
     {
-        "nombre": "frutilla",
+        "nombre": "strawberry",
         "calorias": 24,
         "image": "img/fruta/frutilla.png",
         "precio": 250.70
