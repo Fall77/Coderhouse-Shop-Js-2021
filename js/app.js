@@ -287,6 +287,7 @@ function modal(){
     setTimeout(function(){
         notifModal.classList.add('hide')
     }, 1500)
+    clearTimeout();
 }
 
 //funcion vaciar lista productos (izq)
