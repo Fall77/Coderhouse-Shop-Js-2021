@@ -148,7 +148,6 @@ body{
 }
 
 #shopCart {
-    min-width: 220px;
     padding: 5px;
     width: 100%;
     height: 480px;
@@ -158,7 +157,7 @@ body{
     border-radius: 10px;
     overflow: scroll;
     overflow-x: hidden;
-    position: absolute;
+    position: relative;
     top: 25%;
     box-shadow: black 2px 2px;
 }
@@ -170,7 +169,7 @@ body{
     color: wheat;
     background-color: rgb(0, 155, 0);
     box-shadow: black 2px 2px;
-    top: 166%;
+    top: 29%;
 }
 #open-close-cart{
     top: 30%;
@@ -183,10 +182,10 @@ body{
     left: -65px;
 }
 .contenedor-carro{
-    width: 200px;
+    width: 210px;
     height: 350px;
-    position: sticky;
-    left: 84%;
+    position: fixed;
+    right: 1%;
     top: 2%;
     transition: all 0.5s ease-in-out;
 }
@@ -266,13 +265,13 @@ body{
         transform: rotate(-6deg) scale(1);
     } 
     25% {
-        transform: rotate(12deg) scale(1.4);
+        transform: rotate(12deg) scale(1.3);
     }
     50% {
-        transform: rotate(-10deg) scale(1.6);
+        transform: rotate(-10deg) scale(1.5);
     }
     75% {
-        transform: rotate(10deg) scale(1.4);
+        transform: rotate(10deg) scale(1.3);
     }
     100% {
         transform: rotate(-6deg) scale(1);
