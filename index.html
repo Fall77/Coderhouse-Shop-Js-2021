@@ -16,9 +16,9 @@
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button">Productos</a>
             <ul class="dropdown-menu bg-white m-2 p-1">
-                <li><a id="showFrutas" type="button" class="dropdown-item bg-dark text-white" href="#">Frutas</a></li>
-                <li><a id="showVegetales" type="button" class="dropdown-item bg-dark text-white" href="#">Vegetales</a></li>
-                <li><a id="showVarios" type="button" class="dropdown-item bg-dark text-white" href="#">Varios</a></li>
+                <li class="drop" id="showFrutas" href="#">Frutas</li>
+                <li class="drop" id="showVegetales" href="#">Vegetales</li>
+                <li class="drop" id="showVarios" href="#">Varios</li>
             </ul>
         </li>
         <li class="nav-item m-1">
@@ -42,6 +42,8 @@
         <button id="open-close-cart"><img class="cart" src="img/cart.png" alt="Shop"></button>
     </div>
         <div id="animacion-box"></div>
+        <div id="notification-modal" class="hide">Productos agregado</div>
+
         <div class="contenedor-carro hide">
             <div id="shopCart"></div>
             <p id="precioTotal"></p>

@@ -3,6 +3,7 @@ let imgBox = document.querySelector('#imgBox')
 let productsBox = document.querySelector('.modal-fruit') 
 let shopBox = document.getElementById('shopCart')
 let animacionBox = document.getElementById('animacion-box')
+let notifModal = document.getElementById('notification-modal')
 
 let precioAcumulado = 0;
 
@@ -102,12 +103,14 @@ function showFrutas(){
                     if(acumProductos.includes(productoEncontrado)){
                         //Si es encontrado, se le aumenta la cantidad en 1
                         productoEncontrado.cantidad++;
+                        modal()
                         //se guarda en storage cantidad actualizada
                         localStorage.setItem("Products", JSON.stringify(acumProductos));
                         //se crea nuevamente el shop con la informacion actualizada
                         renderShop()
                     }else{
                         //Si el producto no es encontrado, se agrega uno nuevo, inicializado con cantidad 1
+                        modal()
                         fruta.cantidad = 1;
                         acumProductos.push(fruta)
                         localStorage.setItem("Products", JSON.stringify(acumProductos));
@@ -141,9 +144,11 @@ function showVegetales(){
                 let productoEncontrado = acumProductos.find( producto => producto.nombre === vegetal.nombre);
                 if(acumProductos.includes(productoEncontrado)){
                     productoEncontrado.cantidad++;
+                    modal()
                     localStorage.setItem("Products", JSON.stringify(acumProductos));
                     renderShop()
                 }else{
+                    modal()
                     vegetal.cantidad = 1;
                     acumProductos.push(vegetal)
                     localStorage.setItem("Products", JSON.stringify(acumProductos));
@@ -177,9 +182,11 @@ function showVarios(){
                 let productoEncontrado = acumProductos.find( producto => producto.nombre === vario.nombre);
                 if(acumProductos.includes(productoEncontrado)){
                     productoEncontrado.cantidad++;
+                    modal()
                     localStorage.setItem("Products", JSON.stringify(acumProductos));
                     renderShop()
                 }else{
+                    modal()
                     vario.cantidad = 1;
                     acumProductos.push(vario)
                     localStorage.setItem("Products", JSON.stringify(acumProductos));
@@ -245,11 +252,13 @@ function showData(resultado){
             setTimeout(function(){
                 let productoEncontrado = acumProductos.find( producto => producto.nombre === resultado.nombre);
                 if(acumProductos.includes(productoEncontrado)){
+                    modal()
                     productoEncontrado.cantidad++;
                     localStorage.setItem("Products", JSON.stringify(acumProductos));
                     renderShop()
                 }else{
                     resultado.cantidad = 1;
+                    modal()
                     acumProductos.push(resultado)
                     localStorage.setItem("Products", JSON.stringify(acumProductos));
                     renderShop()}
@@ -264,13 +273,20 @@ function showAnimation(imgSrc){
     let img = document.createElement('img')
     img.classList.add('imgSize')
     img.setAttribute("src", `${imgSrc}`)
-    box.setAttribute("style", "width: 65vw; height: 100px; transform: rotate(160deg)")
+    box.setAttribute("style", "width: 65vw; height: 100px; transform: rotate(165deg)")
     box.appendChild(img)
     animacionBox.appendChild(box)
     setTimeout(function(){
        animacionBox.removeChild(animacionBox.firstChild)
     }, 1500);
     clearTimeout()
+}
+
+function modal(){
+    notifModal.classList.remove('hide')
+    setTimeout(function(){
+        notifModal.classList.add('hide')
+    }, 1500)
 }
 
 //funcion vaciar lista productos (izq)
