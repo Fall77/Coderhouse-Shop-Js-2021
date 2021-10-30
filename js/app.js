@@ -287,6 +287,7 @@ function inputColor(border, color){
         inputVal.style.border = "none"
         inputVal.style.backgroundColor = "#ffffff"
     }, 5000)
+    clearTimeout();
 }
 
 //creacion de animacion y eliminacion de la misma despues de 1.5s
