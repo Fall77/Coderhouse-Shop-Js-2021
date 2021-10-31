@@ -286,7 +286,7 @@ function inputColor(border, color){
         inputVal.value = '';
         inputVal.style.border = "none"
         inputVal.style.backgroundColor = "#ffffff"
-    }, 5000)
+    }, 3000)
     clearTimeout();
 }
 
