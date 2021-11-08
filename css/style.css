@@ -219,7 +219,7 @@ body{
     position: absolute;
     width: 65vw; 
     height: 100px; 
-    transform: rotate(165deg)
+    transform: rotate(165deg);
 }
 .precioShop{
     text-align: end;
@@ -377,22 +377,25 @@ body{
     }
     #shopCart{
         height: 155px;
+        z-index: 1;
     }
     #notification-modal{
-        width: 40%;
-        z-index: -1;
+        width: 30%;
+        z-index: 1;
         box-shadow: #212529 1px 1px;
-        top: 60%;
+        top: 62%;
+        height: 40px;
     }
     .cssAnimation{
         position: absolute;
         transform: rotate(230deg);
-        z-index: -99;
-        width: 60vw; 
+        z-index: 99;
+        width: 50vw; 
     }
     #animacion-box{
         position: fixed;
         left: 20%;
         top: 60%;
+        z-index: 99;
     }
   }
