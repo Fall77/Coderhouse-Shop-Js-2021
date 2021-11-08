@@ -70,15 +70,16 @@ body{
 }
 #out-open-close-modal{
     position: relative;
-    width: 70px;
+    width: 100px;
     height: 40px;
     border-radius: 10px;
     background-color: rgb(0, 155, 0);
     color: wheat;
     box-shadow: black 2px 2px;
-    left: 320px;
+    left: 310px;
     top: 60%;
     transform: rotate(90deg);
+    transition: all 1s ease-in-out;
 }
 .moveLeft{
     left: 10px;
@@ -214,7 +215,12 @@ body{
     left: 25%;
     top: 45%;
 }
-
+.cssAnimation{
+    position: absolute;
+    width: 65vw; 
+    height: 100px; 
+    transform: rotate(165deg)
+}
 .precioShop{
     text-align: end;
     margin: 15px;
@@ -233,7 +239,7 @@ body{
     font-weight: 700;
     text-shadow: #212529 1px 1px;
     background-color: #0bab64;
-    box-shadow: black 2px 2px;
+    box-shadow: black 3px 3px;
     border-radius: 10px;
 }
 
@@ -296,4 +302,97 @@ body{
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(30, 114, 22); 
     border-radius: 10px;
+  }
+  @media screen and (max-width: 1440px) {
+    #fruitBox{
+        height: 300px;
+        width: 300px;
+    }
+    .contenedor-carro{
+        height: 255px;
+        top: 9%;
+    }
+    #shopCart{
+        height: 350px;
+    }
+    #notification-modal{
+        top: 55%;
+    }
+    #out-open-close-modal{
+        width: 90px;
+        left: 210px;
+    }
+    .modal-fruit{
+        left: -310px;
+    }
+    .moveLeft{
+        left: 10px;
+    }
+  }
+@media screen and (max-width: 420px){
+    .moveLeftBtn{
+        left: 230px !important;
+    }
+    #sendBtn{
+        width: 90vw;
+    }
+    #modalInput{
+        width: 88vw
+    }
+    .dropdown-menu{
+        width: 90vw;
+        inset: -3px auto auto -7px !important;
+    }
+    .dropdown-menu li{
+        border: 1px solid #3bb78f;
+    }
+    .modal-fruit{
+        top: 20%;
+        height: 250px;
+        width: 250px;
+    }
+    #out-open-close-modal{
+        left: 150px;
+        height: 40px;
+        transform: rotate(0deg);
+        top: 30%;
+        width: 100px;
+    }
+    #open-close-cart{
+        left: -100px;
+    }
+    #fruitBox{
+        height: 125px;
+        width: 230px;
+    }
+    #imgBox{
+        height: 70px;
+    }
+    .contenedor-carro{
+        top: 55%;
+        height: 200px;
+    }
+    #precioTotal {
+        top: 106%;
+    }
+    #shopCart{
+        height: 155px;
+    }
+    #notification-modal{
+        width: 40%;
+        z-index: -1;
+        box-shadow: #212529 1px 1px;
+        top: 60%;
+    }
+    .cssAnimation{
+        position: absolute;
+        transform: rotate(230deg);
+        z-index: -99;
+        width: 60vw; 
+    }
+    #animacion-box{
+        position: fixed;
+        left: 20%;
+        top: 60%;
+    }
   }

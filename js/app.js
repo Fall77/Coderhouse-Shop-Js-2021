@@ -4,6 +4,7 @@ let productsBox = document.querySelector('.modal-fruit')
 let shopBox = document.getElementById('shopCart')
 let animacionBox = document.getElementById('animacion-box')
 let notifModal = document.getElementById('notification-modal')
+let modalBtn = document.getElementById('out-open-close-modal')
 
 let precioAcumulado = 0;
 
@@ -296,7 +297,7 @@ function showAnimation(imgSrc){
     let img = document.createElement('img')
     img.classList.add('imgSize')
     img.setAttribute("src", `${imgSrc}`)
-    box.setAttribute("style", "width: 65vw; height: 100px; transform: rotate(165deg)")
+    box.classList.add('cssAnimation')
     box.appendChild(img)
     animacionBox.appendChild(box)
     setTimeout(function(){
@@ -326,7 +327,8 @@ function showProductList(){
     productsBox.classList.add('moveLeft')
 }
 //deslizar lista de productos (izq)
-document.getElementById('out-open-close-modal').addEventListener("click",() => {
+modalBtn.addEventListener("click",() => {
+    modalBtn.classList.toggle('moveLeftBtn')
     productsBox.classList.toggle('moveLeft')
 })
 //mostrar/ocultar carro
